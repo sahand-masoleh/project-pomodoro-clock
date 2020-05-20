@@ -1,13 +1,101 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-family: Digits;
+  src: url("./DS-DIGI.TTF");
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+  font-family: "Baloo Chettan 2";
+  src: url("./BalooChettan2-Regular.ttf");
+}
+
+* {
+  font-family: "Baloo Chettan 2";
+  color: white;
+}
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
+}
+#App {
+  display: grid;
+  gap: 1em;
+  grid-template-areas:
+    "tomato tomato"
+    "break session"
+    "timer timer"
+    "start_stop reset";
+  border: 0.2rem solid skyblue;
+  border-radius: 1rem;
+  padding: 1rem 2rem 1rem 2rem;
+}
+
+#tomato {
+  justify-self: center;
+  grid-area: tomato;
+  width: 3em;
+  height: auto;
+}
+
+#break {
+  grid-area: break;
+}
+#session {
+  grid-area: session;
+}
+#timer {
+  width: 100%;
+  text-align: center;
+  grid-area: timer;
+}
+#timer .label {
+  font-size: 2em;
+  border-top: 0.1em solid skyblue;
+}
+
+#time-left {
+  font-family: Digits;
+  font-size: 3em;
+}
+
+#start_stop {
+  grid-area: start_stop;
+}
+#reset {
+  grid-area: reset;
+}
+
+.adjuster {
+  display: grid;
+  gap: 0.5em;
+  grid-template-areas:
+    "label label label"
+    "increment length decrement";
+  text-align: center;
+}
+
+.adjuster .label {
+  grid-area: label;
+}
+
+.label {
+  text-transform: capitalize;
+}
+button {
+  background-color: transparent;
+  border: 0.1em solid skyblue;
+  border-radius: 1em;
+  width: min-content;
+  transition: all 0.2s;
+  justify-self: center;
+}
+button:hover {
+  background-color: white;
+  color: #182848;
+}
+button:active {
+  transform: scale(0.9);
 }
